@@ -79,7 +79,7 @@ class SubcommandTest : public ::testing::Test {
 
  protected:
   absl::StatusOr<std::string> CaptureOutput(absl::string_view invocation) {
-    std::shared_ptr<FILE> fp(popen(invocation.data(), "r"), pclose);
+command = absl::StrFormat("%s %s", program_name, kLogVLog);
     if (fp == nullptr) {
       return absl::ErrnoToStatus(
           errno, absl::StrFormat("Cannot popen '%s'", invocation));
